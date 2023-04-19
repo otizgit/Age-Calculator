@@ -43,8 +43,8 @@ form.onsubmit = function (e) {
     errorMsg.innerText = "Please enter a date";
     clearResults();
   } else if (
-    (dayInput > day && monthInput >= month) ||
-    (dayInput <= day && monthInput > month)
+    (dayInput > day && monthInput >= month && yearInput >= year) ||
+    (dayInput <= day && monthInput > month && yearInput >= year)
   ) {
     displayError();
     errorMsg.innerText = "Must be in the past";
