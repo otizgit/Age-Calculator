@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+}
+
+img,
+svg,
+audio,
+video {
+  display: block;
+}
+
+:root {
+    /* Primary: */
+    --Purple: hsl(259, 100%, 65%);
+    --LightRed: hsl(0, 100%, 67%);
+
+    /*? Neutral: */
+    --White: hsl(0, 0%, 100%);
+    --OffWhite: hsl(0, 0%, 94%);
+    --LightGrey: hsl(0, 0%, 86%);
+    --SmokeyGrey: hsl(0, 1%, 44%);
+    --OffBlack: hsl(0, 0%, 8%);
+}
+
+main {
+    background-color: var(--OffWhite);
+    min-height: 100vh;
+    /* overflow: auto; */
+    padding-block: clamp(4rem, 2vw, 9rem);
+    position: relative;
+}
+
+.container {
+  background-color: var(--White);
+  width: 92%;
+  margin-inline: auto;
+  padding: clamp(3rem, 2vw, 6rem) clamp(.8rem, 1vw, 4rem);
+  border-radius: 20px 20px 100px 20px;
+}
+
+.input-container {
+  display: flex;
+  gap: clamp(1rem, 1vw, 2rem);
+  margin-bottom: clamp(4rem, 2vw, 8rem);
+  text-align: center;
+}
+
+.input-box {
+  flex: 1;
+}
+.input-box label {
+  color: var(--SmokeyGrey);
+  font-weight: 700; 
+  text-transform: uppercase;
+  font-size: clamp(.7rem, 1vw, 3rem);
+  letter-spacing: 2px;
+}
+label.error-label {
+  color: var(--LightRed);
+}
+.input-box input {
+  width: 100%;
+  margin-top: clamp(.3rem, .5vw, 2rem);
+  border: none;
+  outline: none;
+  border: 1px solid var(--LightGrey);
+  border-radius: 10px;
+  padding: clamp(.7rem, .7vw, 2rem) clamp(.9rem, .8vw, 2rem);
+  font-size: clamp(1.3rem, 1vw, 3rem);
+  font-weight: 800; 
+  cursor: pointer;
+}
+.input-box input:focus {
+  border: 1px solid var(--Purple);
+}
+input.error-input {
+  border: 1px solid var(--LightRed);
+  color: var(--LightRed);
+}
+
+.error-msg {
+  color: var(--LightRed);
+  font-size: 0.7rem;
+  margin-top: 0.3rem;
+  font-style: italic;
+  font-weight: 500;
+  visibility: hidden;
+}
+.show-error {
+  visibility: visible;
+}
+
+.submit-container {
+  position: relative;
+}
+
+.submit-line {
+  position: absolute;
+  height: .08rem;
+  background-color: var(--LightGrey);
+  inset: 50% 0 auto 0;
+}
+
+button {
+  all: unset;
+  z-index: 3;
+  background-color: var(--Purple);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(4.4rem, 2vw, 9rem);
+  height: clamp(4.4rem, 2vw, 9rem);
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: .3s ease;
+}
+button:hover {
+  background-color: var(--OffBlack);
+}
+button img {
+  width: clamp(1.9rem, 2vw, 4rem);
+}
+
+.results-container {
+  padding-top: clamp(4rem, 2vw, 8rem);
+  line-height: 1.2;
+}
+.results-container h1 {
+  font-size: clamp(3.3rem, 2vw, 7rem);
+  font-weight: 900;
+  font-style: italic;
+  color: var(--OffBlack);
+}
+.results-container h1 span {
+  color: var(--Purple);
+  margin-right: .5rem;
+}
+
+
+/* Smaller mobile screen size: */
+@media (max-width: 345px) {
+  .results-container h1 {
+    font-size: clamp(2.7rem, 2vw, 7rem);
+  }
+  button {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media (max-width: 290px) {
+  .results-container h1 {
+    font-size: clamp(2.3rem, 2vw, 7rem);
+  }
+  .input-box input {
+    font-size: clamp(1.1rem, 1vw, 3rem);
+  }
+  .input-box label {
+    font-size: clamp(.6rem, 1vw, 3rem);
+  }
+  button {
+    width: 55px;
+    height: 55px;
+  }
+  button img {
+    width: clamp(1.3rem, 2vw, 4rem);
+  }
+}
+
+
+/* Bigger screen sizes: */
+@media (min-width: 1200px) {
+  .container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 55%;
+    padding: clamp(3rem, 2vw, 6rem) clamp(3rem, 2vw, 6rem);
+    border-radius: 20px 20px 200px 20px;
+  }
+  .input-box input {
+    font-size: clamp(1.6rem, 1vw, 3rem);
+  }
+  .input-container {
+    text-align: left;
+    margin-bottom: clamp(2rem, 2vw, 8rem);
+  }
+  button {
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translate(-100%, -50%);
+  }
+  .results-container h1 {
+    font-size: clamp(4.6rem, 2vw, 7rem);
+  }
+  .error-msg {
+    font-size: clamp(.8rem, 1vw, 3rem);
+    margin-top: clamp(.3rem, .5vw, 2rem);
+  }
+  .results-container {
+    padding-top: clamp(2rem, 1vw, 4rem);
+  }
+  button {
+    width: clamp(5rem, 2vw, 9rem);
+    height: clamp(5rem, 2vw, 9rem);
+  }
+  button img {
+    width: clamp(2.3rem, 2vw, 4rem);
+  }
+}
